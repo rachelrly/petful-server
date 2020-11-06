@@ -6,19 +6,17 @@ const dogQueue = new Queue;
 
 if (!catQueue.show()) {
   cats.forEach(cat => catQueue.enqueue(cat))
-  //console.log(catQueue.show())
 }
 
 if (!dogQueue.show()) {
   dogs.forEach(dog => dogQueue.enqueue(dog))
-  //console.log(dogQueue.show())
 }
 
 const Pets = {
   get: () => {
     return {
-      cat: catQueue.show(),
-      dog: dogQueue.show()
+      cats: catQueue.all(),
+      dogs: dogQueue.all()
     }
   },
   dequeue: (type) => {

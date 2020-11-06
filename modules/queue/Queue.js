@@ -47,8 +47,22 @@ class Queue {
   }
 
   all() {
-    console.log(this)
+    const arr = []
 
+    if (!this.first) {
+      return null;
+    }
+
+    let first = this.show();
+    do {
+      let val = this.dequeue();
+      arr.push(val)
+
+      this.enqueue(val);
+    }
+    while (this.show() !== first)
+
+    return arr;
   }
 }
 
