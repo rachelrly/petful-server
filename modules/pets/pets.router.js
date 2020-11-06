@@ -3,9 +3,25 @@ const json = require('body-parser').json()
 
 const Pets = require('./pets.service')
 
-const router = express.Router()
+const both = express.Router()
+const cats = express.Router()
+const dogs = express.Router()
 
-router
+cats
+  .get('/', (req, res) => {
+    return res
+      .status(200)
+      .json(Pets.cats())
+  })
+
+dogs
+  .get('/', (req, res) => {
+    return res
+      .status(200)
+      .json(Pets.dogs())
+  })
+
+both
   .route('/')
 
   .get((req, res) => {
@@ -33,4 +49,8 @@ router
       .send('Invalid type')
   })
 
-module.exports = router
+module.exports = {
+  both,
+  cats,
+  dogs
+}

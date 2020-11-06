@@ -30,7 +30,9 @@ const Pets = {
       console.error('Invalid type')
       return 'Invalid type'
     }
-  }
+  },
+  cats: () => catQueue.show(),
+  dogs: () => dogQueue.show()
 }
 
 module.exports = Pets
