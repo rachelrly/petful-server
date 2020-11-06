@@ -7,3 +7,9 @@ This is a repository of the Petful server.
 View the live app [Here](https://petful-client-template-eight.vercel.app/)
 
 Check out the client repository [Here](https://github.com/Rachanastasia/petful-client)
+
+## Tech Stack
+
+- Node.js
+- Express
+- Deployed with Heroku
