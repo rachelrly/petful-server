@@ -1,25 +1,38 @@
 const Queue = require('../queue/Queue')
-const store = require('../../store')
+const { cats, dogs } = require('../../store')
 
-// Set up initial data.
-// --------------------
+const catQueue = new Queue;
+const dogQueue = new Queue;
 
-const pets = {
-  cats: new Queue(),
-  dogs: new Queue()
+if (!catQueue.show()) {
+  cats.forEach(cat => catQueue.enqueue(cat))
+  //console.log(catQueue.show())
 }
 
-store.cats.forEach(cat => pets.cats.enqueue(cat))
-store.dogs.forEach(dog => pets.dogs.enqueue(dog))
+if (!dogQueue.show()) {
+  dogs.forEach(dog => dogQueue.enqueue(dog))
+  //console.log(dogQueue.show())
+}
 
-// --------------------
-
-module.exports = {
-  get() {
-    // Return the pets next in line to be adopted.
+const Pets = {
+  get: () => {
+    return {
+      cat: catQueue.show(),
+      dog: dogQueue.show()
+    }
   },
+  dequeue: (type) => {
+    if (type === 'cat') {
+      catQueue.dequeue()
+    }
+    else if (type === 'dog') {
+      dogQueue.dequeue()
 
-  dequeue(type) {
-    // Remove a pet from the queue.
+    } else {
+      console.error('Invalid type')
+      return 'Invalid type'
+    }
   }
 }
+
+module.exports = Pets

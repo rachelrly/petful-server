@@ -6,12 +6,24 @@ const People = require('../people/people.service')
 
 const router = express.Router()
 
-router.get('/', (req, res) => {
-  // Return all pets currently up for adoption.
-})
+router
+  .route('/')
 
-router.delete('/', json, (req, res) => {
-  // Remove a pet from adoption.
-})
+  .get((req, res) => {
+    let pets = Pets.get()
+
+    return res
+      .status(200)
+      .json(pets)
+  })
+
+  .delete(json, (req, res) => {
+    removePets('cat')
+
+    return res
+      .status(204)
+      .end()
+
+  })
 
 module.exports = router
