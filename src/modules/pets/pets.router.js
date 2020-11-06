@@ -8,18 +8,39 @@ const cats = express.Router()
 const dogs = express.Router()
 
 cats
-  .get('/', (req, res) => {
+  .route('/')
+
+  .get((req, res) => {
+    const cat = Pets.cats();
     return res
       .status(200)
-      .json(Pets.cats())
+      .json(cat)
+  })
+
+  .delete((req, res) => {
+    Pets.dequeue('cat')
+    return res
+      .status(204)
+      .send(`Cat was deleted`)
   })
 
 dogs
-  .get('/', (req, res) => {
+  .route('/')
+
+  .get((req, res) => {
+    const dog = Pets.dogs()
     return res
       .status(200)
-      .json(Pets.dogs())
+      .json(dog)
   })
+
+  .delete((req, res) => {
+    Pets.dequeue('dog')
+    return res
+      .status(204)
+      .send(`dog was deleted`)
+  })
+
 
 both
   .route('/')
@@ -30,23 +51,6 @@ both
     return res
       .status(200)
       .json(pets)
-  })
-
-  .delete(json, (req, res) => {
-    const { type } = req.body;
-    console.log(type)
-
-    if (type === 'cat' || 'dog') {
-      Pets.dequeue(type)
-
-      return res
-        .status(204)
-        .send(`${type} was deleted`)
-
-    }
-    return res
-      .status(400)
-      .send('Invalid type')
   })
 
 module.exports = {
