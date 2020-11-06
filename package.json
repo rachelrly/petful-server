@@ -1,7 +1,11 @@
 {
   "name": "petful-server",
   "scripts": {
-    "dev": "nodemon server"
+    "dev": "nodemon src/server.js",
+    "deploy": "git push heroku master"
+  },
+  "engines": {
+    "node": "12.18.3"
   },
   "dependencies": {
     "body-parser": "^1.19.0",

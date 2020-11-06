@@ -4,16 +4,11 @@ const { cats, dogs, both } = require('../pets/pets.router')
 
 const Queue = require('../queue/Queue')
 
-
-const q = new Queue;
-q.enqueue(1)
-q.enqueue(2)
-q.enqueue(3)
-q.show()
-
 const app = express()
 
-app.use(cors())
+app.use(cors({
+    origin: process.env.CLIENT_ORIGIN
+}))
 
 app.use('/people', require('../people/people.router'))
 app.use('/pets', both)
