@@ -8,6 +8,14 @@ View the live app [Here](https://petful-client-template-eight.vercel.app/)
 
 Check out the client repository [Here](https://github.com/Rachanastasia/petful-client)
 
+## Images
+
+![](screenshots/petful-screenshot-1.png)
+
+![](screenshots/petful-screenshot-2.png)
+
+![](screenshots/petful-screenshot-3.png)
+
 ## Tech Stack
 
 - Node.js
