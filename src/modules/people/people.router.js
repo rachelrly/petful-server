@@ -23,6 +23,14 @@ router
     People.enqueue(person)
 
     return res
+      .status(201)
+      .end()
+  })
+
+  .delete((req, res) => {
+    People.dequeue()
+
+    return res
       .status(204)
       .end()
   })
