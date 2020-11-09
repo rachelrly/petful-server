@@ -21,10 +21,12 @@ const Pets = {
   },
   dequeue: (type) => {
     if (type === 'cat') {
-      catQueue.dequeue()
+      let temp = catQueue.dequeue()
+      catQueue.enqueue(temp)
     }
     else if (type === 'dog') {
-      dogQueue.dequeue()
+      let temp = dogQueue.dequeue()
+      return dogQueue.enqueue(temp)
 
     } else {
       console.error('Invalid type')

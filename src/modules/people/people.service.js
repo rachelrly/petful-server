@@ -17,6 +17,7 @@ module.exports = {
   },
 
   dequeue() {
-    return peopleQueue.dequeue();
+    const temp = peopleQueue.dequeue()
+    return peopleQueue.enqueue(temp);
   }
 }
