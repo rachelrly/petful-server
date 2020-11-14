@@ -19,9 +19,8 @@ router
   })
 
   .post(json, (req, res) => {
-
+    console.log('BODY', req.body)
     let { person } = req.body;
-    console.log(req.body)
     People.enqueue(person)
 
     return res
