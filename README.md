@@ -21,3 +21,47 @@ Check out the client repository [Here](https://github.com/Rachanastasia/petful-c
 - Node.js
 - Express
 - Deployed with Heroku
+
+## How to use the API
+
+Access the API by making a request to [https://petful-rachel.herokuapp.com](https://petful-rachel.herokuapp.com)
+
+### /api/people
+
+#### GET
+
+Get all people in the queue.
+
+#### POST
+
+Add person to queue. Send {person: name} in request body.
+
+#### DELETE
+
+Remove first person in queue.
+
+### /api/pets
+
+#### GET
+
+Returns the cat and dog at the head of the queue
+
+### /api/cats
+
+#### GET
+
+Gets the cat at the head of the queue
+
+#### DELETE
+
+Removes the cat at the front of the queue and moves it to the back of the queue
+
+### /api/dogs
+
+#### GET
+
+Gets the dog at the head of the queue
+
+#### DELETE
+
+Removes the dog at the front of the queue and moves it to the back of the queue
