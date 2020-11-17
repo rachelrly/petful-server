@@ -19,7 +19,6 @@ router
   })
 
   .post(json, (req, res) => {
-    console.log('BODY', req.body)
     let { person } = req.body;
     People.enqueue(person)
 
@@ -30,7 +29,6 @@ router
 
   .delete((req, res) => {
     People.dequeue()
-
     return res
       .status(204)
       .end()
