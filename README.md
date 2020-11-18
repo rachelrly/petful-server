@@ -4,7 +4,7 @@ Petful is an app for a shelter that only can hold one dog and one cat at a time.
 
 This project utilizes the queue data structure, using JavaScript classes.
 
-This is a repository of the Petful server
+This is a repository of the Petful server.
 
 View the live app [Here](https://petful-client-template-eight.vercel.app/)
 
